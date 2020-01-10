@@ -1,23 +1,26 @@
 <?php
 /**
  * Retrive and output the SVG icons for WordPress theme and Plugins
- * This class is in charge of displaying SVG icons across the site.
  *
  * @package GetIcons
  * @version 0.1.0
  * @author Tremi DKhar
  * @copyright Copyright (c) 2020, Tremi Dkhar
  * @license GPL-2.0+
+ * @link https://github.com/TremiDkhar/TSD-Get-Icons
  */
 
 if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
+
 	/**
-	 * Place each <svg> source in the /assets/icons/{group}/ directory, without adding
+	 * Place each <svg> source in the /icons/{group}/ directory, without adding
 	 * both `width` and `height` attributes, since these are added dynamically,
 	 * before rendering the SVG code.
 	 *
 	 * All icons are assumed to have equal width and height, hence the option
 	 * to only specify a `$size` parameter in the svg methods.
+	 *
+	 * @since 0.1.0
 	 */
 	class TSD_Get_Icons {
 
@@ -25,11 +28,11 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		private static $instance = null;
 
 		private $default_atts = array(
-			'icon'		=> false,
-			'group'		=> 'utility',
-			'size'		=> '32',
-			'class'		=> false,
-			'label'		=> false,
+			'icon'  => false,
+			'group' => 'utility',
+			'size'  => '32',
+			'class' => false,
+			'label' => false,
 		);
 
 		private $class = 'svg-icon';
@@ -43,11 +46,11 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		private $svg = '';
 
 		private function __construct( $atts = array() ) {
-			
-			$this->default_path = dirname( __FILE__ );
-			$atts = shortcode_atts( $this->default_atts, $atts );
 
-						if ( empty( $atts['icon'] ) ) {
+			$this->default_path = dirname( __FILE__ );
+			$atts               = shortcode_atts( $this->default_atts, $atts );
+
+			if ( empty( $atts['icon'] ) ) {
 				return;
 			}
 
@@ -66,7 +69,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			}
 
 			if ( false !== $atts['size'] ) {
-				$repl = sprintf( '<svg class="%1$s" width="%2$d" height="%2$d" aria-hidden="true" role="img" focusable="false"', $this->class, esc_attr( $atts['size'], ) );
+				$repl      = sprintf( '<svg class="%1$s" width="%2$d" height="%2$d" aria-hidden="true" role="img" focusable="false"', $this->class, esc_attr( $atts['size'], ) );
 				$this->svg = preg_replace( '/^<svg /', $repl, trim( $this->icon ) );
 			} else {
 				$this->svg = preg_replace( '/^<svg /', '<svg class="' . $this->class . '" ', trim( $this->icon ) );
@@ -76,15 +79,15 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			$this->svg = preg_replace( '/>\s*</', '><', $this->svg ); // Remove white space between SVG tags.
 
 			if ( ! empty( $atts['label'] ) ) {
-				$this->svg = str_replace( '<svg class', '<svg aria-label="'. esc_attr( $atts['label'] ) . '" class', $this->svg );
+				$this->svg = str_replace( '<svg class', '<svg aria-label="' . esc_attr( $atts['label'] ) . '" class', $this->svg );
 				$this->svg = str_replace( 'aria-hidden="true"', '', $this->svg );
 			}
 
 		}
 		public static function get_instance( $atts = array() ) {
 
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof self ) ){
-				self::$instance = new self( $atts);
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof self ) ) {
+				self::$instance = new self( $atts );
 			}
 
 			return self::$instance;
@@ -95,11 +98,11 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		}
 
 	}
-	
+
 }
 
 function tsd_get_icons( $atts = array() ) {
-	$instance = call_user_func( array( 'TSD_Get_Icons' , 'get_instance' ), $atts );
+	$instance = call_user_func( array( 'TSD_Get_Icons', 'get_instance' ), $atts );
 	return $instance->get_svg();
 }
 
