@@ -14,7 +14,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 
 	/**
 	 * Main class To get the icon
-	 * 
+	 *
 	 * Place each <svg> source in the /icons/{group}/ directory, without adding
 	 * both `width` and `height` attributes, since these are added dynamically,
 	 * before rendering the SVG code.
@@ -55,7 +55,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 * @var string
 		 */
 		private $class = 'svg-icon';
-		
+
 		/**
 		 * Will hold the default path where all the icon is stored
 		 *
@@ -92,7 +92,8 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 * Class constructor
 		 *
 		 * @since 0.1.0
-		 * @param array $atts Attributes of icons supplied to the class for processing
+		 * @param array $atts Attributes of icons supplied to the class for processing.
+		 * @return void
 		 */
 		private function __construct( $atts = array() ) {
 
@@ -109,7 +110,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 				return;
 			}
 
-			$this->icon = file_get_contents( $this->icon_path );
+			$this->icon = file_get_contents( $this->icon_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- The file is a local file
 
 			if ( ! empty( $atts['class'] ) ) {
 				$this->class .= ' ' . esc_attr( $atts['class'] . ' ' . esc_attr( $atts['icon'] ) );
@@ -185,5 +186,5 @@ function tsd_get_icon( $atts = array() ) {
  * @return void
  */
 function tsd_the_icon( $atts = array() ) {
-	echo tsd_get_icon( $atts );
+	echo tsd_get_icon( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
 }
