@@ -22,7 +22,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 	 *
 	 * @since 0.1.0
 	 */
-	class TSD_Get_Icons {
+	class TSD_Get_Icon {
 
 
 		private static $instance = null;
@@ -101,11 +101,11 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 
 }
 
-function tsd_get_icons( $atts = array() ) {
-	$instance = call_user_func( array( 'TSD_Get_Icons', 'get_instance' ), $atts );
+function tsd_get_icon( $atts = array() ) {
+	$instance = call_user_func( array( 'TSD_Get_Icon', 'get_instance' ), $atts );
 	return $instance->get_svg();
 }
 
-function tsd_the_icons( $atts = array() ) {
-	echo tsd_get_icons( $atts );
+function tsd_the_icon( $atts = array() ) {
+	echo tsd_get_icon( $atts );
 }
