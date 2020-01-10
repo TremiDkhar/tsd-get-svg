@@ -7,12 +7,14 @@
  * @author Tremi DKhar
  * @copyright Copyright (c) 2020, Tremi Dkhar
  * @license GPL-2.0+
- * @link https://github.com/TremiDkhar/TSD-Get-Icons
+ * @link https://github.com/TremiDkhar/TSD-Get-Icon
  */
 
 if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 
 	/**
+	 * Main class To get the icon
+	 * 
 	 * Place each <svg> source in the /icons/{group}/ directory, without adding
 	 * both `width` and `height` attributes, since these are added dynamically,
 	 * before rendering the SVG code.
@@ -24,9 +26,20 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 	 */
 	class TSD_Get_Icon {
 
-
+		/**
+		 * Single instance of TSD_Get_Icon
+		 *
+		 * @var object TSD_Get_Icon
+		 * @since 0.1.0
+		 */
 		private static $instance = null;
 
+		/**
+		 * Default attributes required for loading an icon
+		 *
+		 * @var array
+		 * @since 0.1.0
+		 */
 		private $default_atts = array(
 			'icon'  => false,
 			'group' => 'utility',
@@ -35,6 +48,12 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			'label' => false,
 		);
 
+		/**
+		 * Default class for the icon
+		 *
+		 * @var string
+		 * @since 0.1.0
+		 */
 		private $class = 'svg-icon';
 
 		private $default_path = '';
