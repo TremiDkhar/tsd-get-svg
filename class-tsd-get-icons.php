@@ -29,16 +29,16 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		/**
 		 * Single instance of TSD_Get_Icon
 		 *
-		 * @var object TSD_Get_Icon
 		 * @since 0.1.0
+		 * @var object TSD_Get_Icon
 		 */
 		private static $instance = null;
 
 		/**
 		 * Default attributes required for loading an icon
 		 *
-		 * @var array
 		 * @since 0.1.0
+		 * @var array
 		 */
 		private $default_atts = array(
 			'icon'  => false,
@@ -51,30 +51,49 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		/**
 		 * Default class for the icon
 		 *
-		 * @var string
 		 * @since 0.1.0
+		 * @var string
 		 */
 		private $class = 'svg-icon';
 		
 		/**
 		 * Will hold the default path where all the icon is stored
 		 *
-		 * @var string
 		 * @since 0.1.0
+		 * @var string
 		 */
 		private $default_path = '';
 
 		/**
-		 * Undocumented variable
+		 * The Absolute path to the icon
 		 *
+		 * @since 0.1.0
 		 * @var string
 		 */
 		private $icon_path = '';
 
+		/**
+		 * Raw svg of the icon
+		 *
+		 * @since 0.1.0
+		 * @var string
+		 */
 		private $icon = '';
 
+		/**
+		 * The pure icon store in svg format
+		 *
+		 * @since 0.1. 0
+		 * @var string
+		 */
 		private $svg = '';
 
+		/**
+		 * Class constructor
+		 *
+		 * @since 0.1.0
+		 * @param array $atts Attributes of icons supplied to the class for processing
+		 */
 		private function __construct( $atts = array() ) {
 
 			$this->default_path = apply_filter( 'tsd_icon_path', dirname( __FILE__ ) );
@@ -114,6 +133,15 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			}
 
 		}
+
+		/**
+		 * Allow for accessing the single instance of class.
+		 * Also to insure only one instance exists in memory at one time
+		 *
+		 * @since 0.1.0
+		 * @param array $atts Attributes of icons supplied to the class for processing.
+		 * @return object
+		 */
 		public static function get_instance( $atts = array() ) {
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof self ) ) {
@@ -123,6 +151,12 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			return self::$instance;
 		}
 
+		/**
+		 * Get the complete svg of the icon
+		 *
+		 * @since 0.1.0
+		 * @return mixed
+		 */
 		public function get_svg() {
 			return $this->svg;
 		}
@@ -131,11 +165,25 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 
 }
 
+/**
+ * Get the required icon
+ *
+ * @since 0.1.0
+ * @param array $atts Attributes requires to get the icon.
+ * @return mixed
+ */
 function tsd_get_icon( $atts = array() ) {
 	$instance = call_user_func( array( 'TSD_Get_Icon', 'get_instance' ), $atts );
 	return $instance->get_svg();
 }
 
+/**
+ * Echo the required icon
+ *
+ * @since 0.1.0
+ * @param array $atts Attributes requires to get the icon.
+ * @return void
+ */
 function tsd_the_icon( $atts = array() ) {
 	echo tsd_get_icon( $atts );
 }
