@@ -97,7 +97,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 */
 		private function __construct( $atts = array() ) {
 
-			$this->default_path = apply_filter( 'tsd_icon_path', dirname( __FILE__ ) );
+			$this->default_path = dirname( __FILE__ );
 			$atts               = shortcode_atts( $this->default_atts, $atts );
 
 			if ( empty( $atts['icon'] ) ) {
