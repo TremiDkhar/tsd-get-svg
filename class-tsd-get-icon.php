@@ -103,19 +103,6 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		private $svg = '';
 
 		/**
-		 * Class constructor
-		 *
-		 * @since 0.1.0
-		 * @param array $atts Attributes of icons supplied to the class for processing.
-		 * @return void
-		 */
-		private function __construct() {
-
-			$this->default_path = dirname( __FILE__ );
-
-		}
-
-		/**
 		 * Allow for accessing the single instance of class.
 		 * Also to insure only one instance exists in memory at one time
 		 *
@@ -138,11 +125,14 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 * Method to rendered and build the svg icon
 		 *
 		 * @since 0.2.1
-		 * @param array $atts
+		 * @param array $atts Attributes of icons supplied to the class for processing.
 		 * @return void
 		 */
 		private function build_icon( $atts = array() ) {
-			$this->icon_atts = shortcode_atts( self::$default_atts, $atts );
+
+			// Setting the default option.
+			$this->default_path = dirname( __FILE__ );
+			$this->icon_atts    = shortcode_atts( self::$default_atts, $atts );
 
 			if ( empty( $this->icon_atts['icon'] ) ) {
 				return;
