@@ -23,7 +23,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 	 * to only specify a `$size` parameter in the svg methods.
 	 *
 	 * Inspired by Bill Erickson
-	 * 
+	 *
 	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php
 	 * s
 	 * @since 0.1.0
@@ -33,6 +33,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		/**
 		 * Single instance of TSD_Get_Icon
 		 *
+		 * @static
 		 * @since 0.1.0
 		 * @var object TSD_Get_Icon
 		 */
@@ -42,15 +43,24 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 * Default attributes required for loading an icon
 		 *
 		 * @since 0.1.0
+		 * @static
 		 * @var array
 		 */
-		private $default_atts = array(
+		private static $default_atts = array(
 			'icon'  => false,
 			'group' => 'utility',
 			'size'  => '32',
 			'class' => false,
 			'label' => false,
 		);
+
+		/**
+		 * Holds the requested icon attributes
+		 *
+		 * @since 0.2.1
+		 * @var array
+		 */
+		private $icon_atts = array();
 
 		/**
 		 * Default class for the icon
@@ -99,43 +109,9 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 * @param array $atts Attributes of icons supplied to the class for processing.
 		 * @return void
 		 */
-		private function __construct( $atts = array() ) {
+		private function __construct() {
 
 			$this->default_path = dirname( __FILE__ );
-			$atts               = shortcode_atts( $this->default_atts, $atts );
-
-			if ( empty( $atts['icon'] ) ) {
-				return;
-			}
-
-			$this->icon_path = $this->default_path . '/icons/' . $atts['group'] . '/' . $atts['icon'] . '.svg';
-
-			if ( ! file_exists( $this->icon_path ) ) {
-				return;
-			}
-
-			$this->icon = file_get_contents( $this->icon_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- The file is a local file
-
-			if ( ! empty( $atts['class'] ) ) {
-				$this->class .= ' ' . esc_attr( $atts['class'] . ' ' . esc_attr( $atts['icon'] ) );
-			} else {
-				$this->class .= ' ' . esc_attr( $atts['icon'] );
-			}
-
-			if ( false !== $atts['size'] ) {
-				$repl      = sprintf( '<svg class="%1$s" width="%2$d" height="%2$d" aria-hidden="true" role="img" focusable="false"', $this->class, esc_attr( $atts['size'], ) );
-				$this->svg = preg_replace( '/^<svg /', $repl, trim( $this->icon ) );
-			} else {
-				$this->svg = preg_replace( '/^<svg /', '<svg class="' . $this->class . '" ', trim( $this->icon ) );
-			}
-
-			$this->svg = preg_replace( "/([\n\t]+)/", ' ', $this->svg ); // Remove newlines & tabs.
-			$this->svg = preg_replace( '/>\s*</', '><', $this->svg ); // Remove white space between SVG tags.
-
-			if ( ! empty( $atts['label'] ) ) {
-				$this->svg = str_replace( '<svg class', '<svg aria-label="' . esc_attr( $atts['label'] ) . '" class', $this->svg );
-				$this->svg = str_replace( 'aria-hidden="true"', '', $this->svg );
-			}
 
 		}
 
@@ -150,10 +126,56 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		public static function get_instance( $atts = array() ) {
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof self ) ) {
-				self::$instance = new self( $atts );
+				self::$instance = new self();
 			}
 
+			self::$instance->build_icon( $atts );
+
 			return self::$instance;
+		}
+
+		/**
+		 * Method to rendered and build the svg icon
+		 *
+		 * @since 0.2.1
+		 * @param array $atts
+		 * @return void
+		 */
+		private function build_icon( $atts = array() ) {
+			$this->icon_atts = shortcode_atts( self::$default_atts, $atts );
+
+			if ( empty( $this->icon_atts['icon'] ) ) {
+				return;
+			}
+
+			$this->icon_path = $this->default_path . '/icons/' . $this->icon_atts['group'] . '/' . $this->icon_atts['icon'] . '.svg';
+
+			if ( ! file_exists( $this->icon_path ) ) {
+				return;
+			}
+
+			$this->icon = file_get_contents( $this->icon_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- The file is a local file
+
+			if ( ! empty( $this->icon_atts['class'] ) ) {
+				$this->class .= ' ' . esc_attr( $this->icon_atts['class'] . ' ' . esc_attr( $this->icon_atts['icon'] ) );
+			} else {
+				$this->class .= ' ' . esc_attr( $this->icon_atts['icon'] );
+			}
+
+			if ( false !== $this->icon_atts['size'] ) {
+				$repl      = sprintf( '<svg class="%1$s" width="%2$d" height="%2$d" aria-hidden="true" role="img" focusable="false"', $this->class, esc_attr( $this->icon_atts['size'], ) );
+				$this->svg = preg_replace( '/^<svg /', $repl, trim( $this->icon ) );
+			} else {
+				$this->svg = preg_replace( '/^<svg /', '<svg class="' . $this->class . '" ', trim( $this->icon ) );
+			}
+
+			$this->svg = preg_replace( "/([\n\t]+)/", ' ', $this->svg ); // Remove newlines & tabs.
+			$this->svg = preg_replace( '/>\s*</', '><', $this->svg ); // Remove white space between SVG tags.
+
+			if ( ! empty( $this->icon_atts['label'] ) ) {
+				$this->svg = str_replace( '<svg class', '<svg aria-label="' . esc_attr( $atts['label'] ) . '" class', $this->svg );
+				$this->svg = str_replace( 'aria-hidden="true"', '', $this->svg );
+			}
 		}
 
 		/**
