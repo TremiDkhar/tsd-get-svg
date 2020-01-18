@@ -130,6 +130,9 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		 */
 		private function build_icon( $atts = array() ) {
 
+			// Reset the previous build icon.
+			$this->svg = '';
+			
 			// Setting the default option.
 			$this->default_path = dirname( __FILE__ );
 			$this->icon_atts    = shortcode_atts( self::$default_atts, $atts );
