@@ -25,7 +25,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 	 * Inspired by Bill Erickson
 	 *
 	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php
-	 * s
+	 * 
 	 * @since 0.1.0
 	 */
 	class TSD_Get_Icon {
@@ -132,7 +132,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 
 			// Reset the previous build icon.
 			$this->svg = '';
-			
+
 			// Setting the default option.
 			$this->default_path = dirname( __FILE__ );
 			$this->icon_atts    = shortcode_atts( self::$default_atts, $atts );
