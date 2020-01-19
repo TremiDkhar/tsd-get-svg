@@ -151,7 +151,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			$this->icon = file_get_contents( $this->icon_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- The file is a local file
 
 			if ( ! empty( $this->icon_atts['class'] ) ) {
-				$this->class = 'svg-icon ' . esc_attr( $this->icon_atts['class'] . ' ' . esc_attr( $this->icon_atts['icon'] ) );
+				$this->class = 'svg-icon ' . esc_attr( $this->icon_atts['class'] );
 			} else {
 				$this->class = 'svg-icon ' . esc_attr( $this->icon_atts['icon'] );
 			}

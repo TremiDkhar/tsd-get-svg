@@ -2,6 +2,8 @@
 
 ## [0.1.1] - Unreleased
 - New: Color can be added to the icon now by passing the `color` parameter that will accept only hex color
+- Changed: Adjust the default size of the icon
+- Fixed: Fix icon class output twice
 
 [0.1.1]: https://github.com/TremiDkhar/TSD-Get-Icon/compare/0.1.0...0.1.1
 
