@@ -49,7 +49,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 		private static $default_atts = array(
 			'icon'  => false,
 			'group' => 'utility',
-			'size'  => '32',
+			'size'  => '24',
 			'class' => false,
 			'label' => false,
 			'color' => false,
