@@ -52,6 +52,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			'size'  => '32',
 			'class' => false,
 			'label' => false,
+			'color' => false,
 		);
 
 		/**
@@ -166,8 +167,15 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 			$this->svg = preg_replace( '/>\s*</', '><', $this->svg ); // Remove white space between SVG tags.
 
 			if ( ! empty( $this->icon_atts['label'] ) ) {
-				$this->svg = str_replace( '<svg class', '<svg aria-label="' . esc_attr( $atts['label'] ) . '" class', $this->svg );
+				$this->svg = str_replace( '<svg class', '<svg aria-label="' . esc_attr( $this->icon_atts['label'] ) . '" class', $this->svg );
 				$this->svg = str_replace( 'aria-hidden="true"', '', $this->svg );
+			}
+
+			if ( false !== $this->icon_atts['color'] ) {
+				// Check if the Hex color is valid.
+				if ( preg_match( '/^#(([0-9a-fA-F]{2}){3}|[0-9a-fA-F]{3})$/', $this->icon_atts['color'] ) ) {
+					$this->svg = str_replace( '<path fill-rule', '<path fill="' . esc_attr( $this->icon_atts['color'] ) . '" fill-rule', $this->svg );
+				}
 			}
 		}
 
