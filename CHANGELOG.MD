@@ -1,6 +1,6 @@
 # TSD Get Icon Change Log
 
-## [0.1.1] - Unreleased
+## [0.1.1] - January 25, 2020
 - New: Color can be added to the icon now by passing the `color` parameter that will accept only hex color
 - Changed: Adjust the default size of the icon
 - Fixed: Fix icon class output twice
