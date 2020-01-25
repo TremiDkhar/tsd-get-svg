@@ -10,7 +10,7 @@
  * @link https://github.com/TremiDkhar/TSD-Get-Icon
  */
 
-if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
+if ( ! class_exists( 'TSD_Get_Icon ' ) ) {
 
 	/**
 	 * Main class To get the icon
@@ -193,25 +193,29 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 
 }
 
-/**
- * Get the required icon
- *
- * @since 0.1.0
- * @param array $atts Attributes requires to get the icon.
- * @return mixed
- */
-function tsd_get_icon( $atts = array() ) {
-	$instance = call_user_func( array( 'TSD_Get_Icon', 'get_instance' ), $atts );
-	return $instance->get_svg();
+if ( ! function_exists( 'tsd_get_icon' ) ) {
+	/**
+	 * Get the required icon
+	 *
+	 * @since 0.1.0
+	 * @param array $atts Attributes requires to get the icon.
+	 * @return mixed
+	 */
+	function tsd_get_icon( $atts = array() ) {
+		$instance = call_user_func( array( 'TSD_Get_Icon', 'get_instance' ), $atts );
+		return $instance->get_svg();
+	}
 }
 
-/**
- * Echo the required icon
- *
- * @since 0.1.0
- * @param array $atts Attributes requires to get the icon.
- * @return void
- */
-function tsd_the_icon( $atts = array() ) {
-	echo tsd_get_icon( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
+if ( ! function_exists( 'tsd_the_icon' ) ) {
+	/**
+	 * Echo the required icon
+	 *
+	 * @since 0.1.0
+	 * @param array $atts Attributes requires to get the icon.
+	 * @return void
+	 */
+	function tsd_the_icon( $atts = array() ) {
+		echo tsd_get_icon( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
+	}
 }

@@ -1,6 +1,7 @@
 # TSD Get Icon Change Log
 
 ## [0.1.2] - Unreleased
+- Improved: Check if the class & function exists before declaration
 
 [0.1.2]: https://github.com/TremiDkhar/TSD-Get-Icon/compare/0.1.1...0.1.2
 
