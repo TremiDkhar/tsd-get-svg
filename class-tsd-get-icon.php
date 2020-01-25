@@ -25,7 +25,7 @@ if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
 	 * Inspired by Bill Erickson
 	 *
 	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php
-	 * 
+	 *
 	 * @since 0.1.0
 	 */
 	class TSD_Get_Icon {
