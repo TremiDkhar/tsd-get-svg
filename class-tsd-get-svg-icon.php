@@ -200,7 +200,7 @@ if ( ! class_exists( 'TSD_Get_SVG_Icon' ) ) {
  * @param array $atts Attributes requires to get the icon.
  * @return mixed
  */
-function tsd_get_icon( $atts = array() ) {
+function tsd_get_svg_icon( $atts = array() ) {
 	$instance = call_user_func( array( 'TSD_Get_SVG_Icon', 'get_instance' ), $atts );
 	return $instance->get_svg();
 }
@@ -212,6 +212,6 @@ function tsd_get_icon( $atts = array() ) {
  * @param array $atts Attributes requires to get the icon.
  * @return void
  */
-function tsd_the_icon( $atts = array() ) {
-	echo tsd_get_icon( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
+function tsd_the_svg_icon( $atts = array() ) {
+	echo tsd_get_svg_icon( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
 }
