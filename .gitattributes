@@ -1,0 +1,10 @@
+# Normalize text file line endings to LF on checkin
+# and prevent conversion to CRLF on checkout.
+* text=auto eol=lf
+
+# Ignore some item when the downloading the repo as zip
+.gitattributes export-ignore
+.gitignore export-ignore
+CHANGELOG.MD export-ignore
+composer.json export-ignore
+phpcs.xml export-ignore

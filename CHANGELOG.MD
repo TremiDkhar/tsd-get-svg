@@ -1,7 +1,7 @@
 # TSD Get Icon Change Log
 
 ## [0.1.2] - Unreleased
-- Added: Add `.gitignore`
+- Added: Add `.gitignore` & `.gitattributes`
 - Fixed: Removed the whitespace that always cause the condition to be false while checking the class exists
 - Update: Change the class name from `TSD_Get_Icon` to `TSD_Get_SVG_Icon`
 
