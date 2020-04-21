@@ -10,7 +10,7 @@
  * @link https://github.com/TremiDkhar/TSD-Get-Icon
  */
 
-if ( ! class_exists( 'TSD_Get_Icons' ) ) {
+if ( ! class_exists( 'TSD_Get_SVG_Icon' ) ) {
 
 	/**
 	 * Main class To get the icon
@@ -28,7 +28,7 @@ if ( ! class_exists( 'TSD_Get_Icons' ) ) {
 	 * 
 	 * @since 0.1.0
 	 */
-	class TSD_Get_Icon {
+	class TSD_Get_SVG_Icon {
 
 		/**
 		 * Single instance of TSD_Get_Icon
@@ -201,7 +201,7 @@ if ( ! class_exists( 'TSD_Get_Icons' ) ) {
  * @return mixed
  */
 function tsd_get_icon( $atts = array() ) {
-	$instance = call_user_func( array( 'TSD_Get_Icon', 'get_instance' ), $atts );
+	$instance = call_user_func( array( 'TSD_Get_SVG_Icon', 'get_instance' ), $atts );
 	return $instance->get_svg();
 }
 
