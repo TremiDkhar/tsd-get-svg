@@ -1,0 +1,28 @@
+{
+	"name": "TremiDkhar/tsd-get-svg-icon",
+	"description": "A PHP library that allows to easily retrieve svg icon from the stored directory and output or stored the icon as variable",
+	"homepage": "https://github.com/TremiDkhar/tsd-get-svg-icon",
+	"keywords": ["wordpress", "plugins", "themes", "php", "svg", "library" ],
+	"authors": [
+		{
+			"name": "Tremi Dkhar",
+			"homepage": "https://github.com/TremiDkhar",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/TremiDkhar/tsd-get-svg-icon/issues",
+		"source": "https://github.com/TremiDkhar/tsd-get-svg-icon"
+	},
+	"require": {
+		"php": ">=5.2"
+	},
+	"require-dev": {
+	    "dealerdirect/phpcodesniffer-composer-installer": "^0.6",
+	    "phpcompatibility/phpcompatibility-wp": "^2.0",
+	    "wp-coding-standards/wpcs": "^2.0"
+	},
+	"autoload": {
+		"files": ["class-tsd-get-icon.php"]
+	}
+}
