@@ -22,9 +22,9 @@ if ( ! class_exists( 'TSD_Get_SVG_Icon' ) ) {
 	 * All icons are assumed to have equal width and height, hence the option
 	 * to only specify a `$size` parameter in the svg methods.
 	 *
-	 * Inspired by Bill Erickson
+	 * Inspired by the helper function of Bill Erickson
 	 *
-	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php
+	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php#L128
 	 * 
 	 * @since 0.1.0
 	 */
