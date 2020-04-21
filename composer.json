@@ -24,6 +24,6 @@
 	    "wp-coding-standards/wpcs": "^2.0"
 	},
 	"autoload": {
-		"files": ["class-tsd-get-icon.php"]
+		"files": ["class-tsd-get-svg-icon.php"]
 	}
 }
