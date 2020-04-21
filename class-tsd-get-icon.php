@@ -10,7 +10,7 @@
  * @link https://github.com/TremiDkhar/TSD-Get-Icon
  */
 
-if ( ! class_exists( 'TSD_Get_Icons ' ) ) {
+if ( ! class_exists( 'TSD_Get_Icons' ) ) {
 
 	/**
 	 * Main class To get the icon
