@@ -3,7 +3,7 @@
  * Retrive and output the SVG icons for WordPress theme and Plugins
  *
  * @package GetIcons
- * @version 0.1.1
+ * @version 0.1.2
  * @author Tremi DKhar
  * @copyright Copyright (c) 2020, Tremi Dkhar
  * @license GPL-2.0+
