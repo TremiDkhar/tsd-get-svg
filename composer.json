@@ -4,7 +4,7 @@
 	"homepage": "https://github.com/TremiDkhar/tsd-get-svg",
 	"keywords": ["wordpress", "plugins", "themes", "php", "svg", "library" ],
 	"license": "GPL-2.0+",
-	"minimum-stability": "stable",
+	"minimum-stability": "dev",
 	"authors": [
 		{
 			"name": "Tremi Dkhar",
