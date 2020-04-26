@@ -1,6 +1,6 @@
 {
 	"name": "TremiDkhar/tsd-get-svg",
-	"description": "A PHP library that allows to easily retrieve svg icon from the stored directory and output or stored the icon as variable",
+	"description": "A PHP library that allows to easily retrieve svg icon from the stored directory and output or stored the markup as variable",
 	"homepage": "https://github.com/TremiDkhar/tsd-get-svg",
 	"keywords": ["wordpress", "plugins", "themes", "php", "svg", "library" ],
 	"license": "GPL-2.0+",
