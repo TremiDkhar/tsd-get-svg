@@ -4,6 +4,7 @@
 	"homepage": "https://github.com/TremiDkhar/tsd-get-svg-icon",
 	"keywords": ["wordpress", "plugins", "themes", "php", "svg", "library" ],
 	"license": "GPL-2.0+",
+	"minimum-stability": "stable",
 	"authors": [
 		{
 			"name": "Tremi Dkhar",
