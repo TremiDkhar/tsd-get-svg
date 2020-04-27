@@ -10,7 +10,7 @@
  * @link https://github.com/TremiDkhar/TSD-Get-Icon
  */
 
-if ( ! class_exists( 'TSD_Get_SVG_Icon' ) ) {
+if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 
 	/**
 	 * Main class To get the icon
@@ -28,7 +28,7 @@ if ( ! class_exists( 'TSD_Get_SVG_Icon' ) ) {
 	 * 
 	 * @since 0.1.0
 	 */
-	class TSD_Get_SVG_Icon {
+	class TSD_Get_SVG {
 
 		/**
 		 * Single instance of TSD_Get_Icon
@@ -200,8 +200,8 @@ if ( ! class_exists( 'TSD_Get_SVG_Icon' ) ) {
  * @param array $atts Attributes requires to get the icon.
  * @return mixed
  */
-function tsd_get_svg_icon( $atts = array() ) {
-	$instance = call_user_func( array( 'TSD_Get_SVG_Icon', 'get_instance' ), $atts );
+function tsd_get_svg( $atts = array() ) {
+	$instance = call_user_func( array( 'TSD_Get_SVG', 'get_instance' ), $atts );
 	return $instance->get_svg();
 }
 
@@ -212,6 +212,6 @@ function tsd_get_svg_icon( $atts = array() ) {
  * @param array $atts Attributes requires to get the icon.
  * @return void
  */
-function tsd_the_svg_icon( $atts = array() ) {
-	echo tsd_get_svg_icon( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
+function tsd_the_svg( $atts = array() ) {
+	echo tsd_get_svg( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
 }
