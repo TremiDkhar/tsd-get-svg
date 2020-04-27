@@ -25,7 +25,7 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 	 * Inspired by the helper function of Bill Erickson
 	 *
 	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php#L128
-	 * 
+	 *
 	 * @since 0.1.0
 	 */
 	class TSD_Get_SVG {
@@ -193,25 +193,29 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 
 }
 
-/**
- * Get the required icon
- *
- * @since 0.1.0
- * @param array $atts Attributes requires to get the icon.
- * @return mixed
- */
-function tsd_get_svg( $atts = array() ) {
-	$instance = call_user_func( array( 'TSD_Get_SVG', 'get_instance' ), $atts );
-	return $instance->get_svg();
+if ( ! function_exists( 'tsd_get_svg' ) ) {
+	/**
+	 * Get the required icon
+	 *
+	 * @since 0.1.0
+	 * @param array $atts Attributes requires to get the icon.
+	 * @return mixed
+	 */
+	function tsd_get_svg( $atts = array() ) {
+		$instance = call_user_func( array( 'TSD_Get_SVG', 'get_instance' ), $atts );
+		return $instance->get_svg();
+	}
 }
 
-/**
- * Echo the required icon
- *
- * @since 0.1.0
- * @param array $atts Attributes requires to get the icon.
- * @return void
- */
-function tsd_the_svg( $atts = array() ) {
-	echo tsd_get_svg( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
+if ( ! function_exists( 'tsd_the_svg' ) ) {
+	/**
+	 * Echo the required icon
+	 *
+	 * @since 0.1.0
+	 * @param array $atts Attributes requires to get the icon.
+	 * @return void
+	 */
+	function tsd_the_svg( $atts = array() ) {
+		echo tsd_get_svg( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
+	}
 }
