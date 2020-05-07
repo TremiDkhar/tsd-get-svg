@@ -1,14 +1,32 @@
 <?php
 /**
- * Retrive and output the SVG icons for WordPress theme and Plugins
+ * Retrive the required svg file and use for output along with the html file within the WordPress theme and plugin.
  *
- * @package GetIcons
- * @version 0.1.2
- * @author Tremi DKhar
- * @copyright Copyright (c) 2020, Tremi Dkhar
- * @license GPL-2.0+
- * @link https://github.com/TremiDkhar/TSD-Get-Icon
+ * @package 	TSD-Get-SVG
+ * @version 	0.1.2
+
+ * @author 		Tremi DKhar
+ * @copyright 	Copyright (c) 2020, Tremi Dkhar
+ * @license 	GPL-2.0+
+ * @link 		https://github.com/TremiDkhar/tsd-get-svg
  */
+
+/*
+	Copyright 2019 Tremi Dkhar (https://github.com/TremiDkhar)
+
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License, version 2, as
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
 
 if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 
