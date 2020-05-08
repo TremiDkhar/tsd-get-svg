@@ -138,7 +138,7 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 			self::$instance->default_path = apply_filters( 'tsd_get_svg_path', dirname( __FILE__ ) );
 
 			// Start building the svg content.
-			self::$instance->build_icon( $atts );
+			self::$instance->build_svg( $atts );
 
 			return self::$instance;
 		}
@@ -150,7 +150,7 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 		 * @param array $atts Attributes of icons supplied to the class for processing.
 		 * @return void
 		 */
-		private function build_icon( $atts = array() ) {
+		private function build_svg( $atts = array() ) {
 
 			// Reset the previous build icon.
 			$this->svg = '';
