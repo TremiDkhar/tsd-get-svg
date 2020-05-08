@@ -66,7 +66,6 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 		 */
 		private static $default_atts = array(
 			'icon'  => false,
-			'group' => 'utility',
 			'size'  => '24',
 			'class' => false,
 			'label' => false,
@@ -135,6 +134,10 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 				self::$instance = new self();
 			}
 
+			// Set the path that contain the svg file.
+			self::$instance->default_path = apply_filters( 'tsd_get_svg_path', dirname( __FILE__ ) );
+
+			// Start building the svg content.
 			self::$instance->build_icon( $atts );
 
 			return self::$instance;
@@ -153,14 +156,13 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 			$this->svg = '';
 
 			// Setting the default option.
-			$this->default_path = dirname( __FILE__ );
 			$this->icon_atts    = shortcode_atts( self::$default_atts, $atts );
 
 			if ( empty( $this->icon_atts['icon'] ) ) {
 				return;
 			}
 
-			$this->icon_path = $this->default_path . '/icons/' . $this->icon_atts['group'] . '/' . $this->icon_atts['icon'] . '.svg';
+			$this->icon_path = $this->default_path . '/' . $this->icon_atts['icon'] . '.svg';
 
 			if ( ! file_exists( $this->icon_path ) ) {
 				return;
