@@ -1,14 +1,15 @@
 <?php
 /**
- * Retrive the required svg file and use for output along with the html file within the WordPress theme and plugin.
+ * Retrive the required svg file and use for output along with the html file
+ * within the WordPress theme and plugin.
  *
- * @package 	TSD-Get-SVG
- * @version 	0.1.2
+ * @package     TSD-Get-SVG
+ * @version     0.1.2
 
- * @author 		Tremi DKhar
- * @copyright 	Copyright (c) 2020, Tremi Dkhar
- * @license 	GPL-2.0+
- * @link 		https://github.com/TremiDkhar/tsd-get-svg
+ * @author      Tremi DKhar
+ * @copyright   Copyright (c) 2020, Tremi Dkhar
+ * @license     GPL-2.0+
+ * @link        https://github.com/TremiDkhar/tsd-get-svg
  */
 
 /*
@@ -31,15 +32,7 @@
 if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 
 	/**
-	 * Main class To get the icon
-	 *
-	 * Place each <svg> source in the /icons/{group}/ directory, without adding
-	 * both `width` and `height` attributes, since these are added dynamically,
-	 * before rendering the SVG code.
-	 *
-	 * All icons are assumed to have equal width and height, hence the option
-	 * to only specify a `$size` parameter in the svg methods.
-	 *
+	 * Main class To get the svg content.
 	 * Inspired by the helper function of Bill Erickson
 	 *
 	 * @see https://github.com/billerickson/EA-Starter/blob/master/inc/helper-functions.php#L128
@@ -49,11 +42,11 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 	class TSD_Get_SVG {
 
 		/**
-		 * Single instance of TSD_Get_Icon
+		 * Single instance of TSD_Get_SVG
 		 *
 		 * @static
 		 * @since 0.1.0
-		 * @var object TSD_Get_Icon
+		 * @var object TSD_Get_SVG
 		 */
 		private static $instance = null;
 
@@ -156,7 +149,7 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 			$this->svg = '';
 
 			// Setting the default option.
-			$this->icon_atts    = shortcode_atts( self::$default_atts, $atts );
+			$this->icon_atts = shortcode_atts( self::$default_atts, $atts );
 
 			if ( empty( $this->icon_atts['icon'] ) ) {
 				return;
@@ -200,7 +193,7 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 		}
 
 		/**
-		 * Get the complete svg of the icon
+		 * Get the content of the svg
 		 *
 		 * @since 0.1.0
 		 * @return mixed
@@ -215,7 +208,7 @@ if ( ! class_exists( 'TSD_Get_SVG' ) ) {
 
 if ( ! function_exists( 'tsd_get_svg' ) ) {
 	/**
-	 * Get the required icon
+	 * Return the content of the svg file
 	 *
 	 * @since 0.1.0
 	 * @param array $atts Attributes requires to get the icon.
@@ -229,7 +222,7 @@ if ( ! function_exists( 'tsd_get_svg' ) ) {
 
 if ( ! function_exists( 'tsd_the_svg' ) ) {
 	/**
-	 * Echo the required icon
+	 * Echo the content of the svg file
 	 *
 	 * @since 0.1.0
 	 * @param array $atts Attributes requires to get the icon.
