@@ -1,5 +1,5 @@
 # TSD Get SVG
-TSD Get SVG is a simple library that helps to retrive the svg content from the svg file and output it into the html file or store it in variable.
+TSD Get SVG is a simple library that helps to retrieve the SVG content from the SVG file and output it into the HTML file or store it in a variable.
 
 Use the `tsd_get_svg_path` to filter the directory that store the icon
 
