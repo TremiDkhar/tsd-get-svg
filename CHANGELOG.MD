@@ -8,6 +8,8 @@
 - Improved: Check if the class & function exists before declaration
 - Improved: Add check before function call to prevent a conflict
 
+[0.1.2]: https://github.com/TremiDkhar/tsd-get-svg-icon/compare/0.1.1...0.1.2
+
 ## [0.1.1] - January 25, 2020
 - New: Color can be added to the icon now by passing the `color` parameter that will accept only hex color
 - Changed: Adjust the default size of the icon
