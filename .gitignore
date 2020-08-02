@@ -38,7 +38,7 @@ node_modules
 .git
 
 # Composer Vendor
-/vendor/
+/vendor
 
 # Composer Lock
 composer.lock
