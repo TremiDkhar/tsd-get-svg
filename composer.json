@@ -17,12 +17,8 @@
 		"source": "https://github.com/TremiDkhar/tsd-get-svg"
 	},
 	"require": {
-		"php": ">=5.2"
-	},
-	"require-dev": {
-	    "dealerdirect/phpcodesniffer-composer-installer": "^0.6",
-	    "phpcompatibility/phpcompatibility-wp": "^2.0",
-	    "wp-coding-standards/wpcs": "^2.0"
+		"php": ">=5.2",
+		"enshrined/svg-sanitize": "dev-master"
 	},
 	"autoload": {
 		"files": ["class-tsd-get-svg.php"]
