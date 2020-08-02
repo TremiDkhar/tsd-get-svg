@@ -232,3 +232,25 @@ if ( ! function_exists( 'tsd_the_svg' ) ) {
 		echo tsd_get_svg( $atts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output SVG
 	}
 }
+
+add_shortcode( 'tsd_get_svg', 'tsd_get_svg_shortcode' );
+/**
+ * Shortcode to output the svg content
+ *
+ * @param array $atts The parameter requires to generate the svg content.
+ * @return mixed $svg The final svg content.
+ */
+function tsd_get_svg_shortcode( $atts ) {
+
+	$svg          = '';
+	$default_atts = array(
+		'icon' => 'error',
+		'size' => 32,
+	);
+
+	$atts = shortcode_atts( $default_atts, $atts );
+
+	$svg = tsd_get_svg( $atts );
+
+	return $svg;
+}
