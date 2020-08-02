@@ -9,6 +9,9 @@
 	<!-- What to scan -->
 	<file>.</file>
 
+	<!-- What not to scan -->
+	<exclude-pattern>/vendor/</exclude-pattern>
+
 	<!-- How to scan -->
 	<arg value="sp"/> <!-- Show sniff and progress -->
 	<arg name="parallel" value="8"/> <!-- Enables parallel processing when available for faster results. -->
